@@ -159,6 +159,11 @@ function newGame() {
     for (let i = 0; i < numPlayers; i++) {
         console.log('Enter Player Name:')//prompt
     }
+    // deal cards: each player should have array of card objects
+
+    // check blackjacks, then square up blackjacks (if any)
+
+    // send hand to playerAction, return player
 }
 
 
