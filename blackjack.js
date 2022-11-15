@@ -7,6 +7,13 @@
 2. Add desired amount of decks into the shoe
 
 3. Choose number of players (1-5?)
+    * Each player represented by an object with properties:
+        - name: (Player1 - 5)
+        - bankroll:
+        - hand[] (current array of cards)
+        - score (score of current hand *default to 0 before each hand)
+
+
 
 4. Get the bankrolls straightened
 
@@ -104,6 +111,55 @@ function createShoe(deck, numShoes) {
     return shoe;
 }
 
-newShoe = shuffle(createShoe(createDeck(), 8));
-console.log(newShoe);
-console.log(newShoe.length)
+function Player(id, name) {
+    this.id = id;
+    this.name = name;
+}
+
+Player.prototype = {
+    constructor: Player,
+    id: 0,
+    name: 'Player',
+    bankroll: 0,
+    hand: [],
+    score: 0
+}
+
+
+function dealCards() {
+    // deal cards around table one at a time (dealer's second card should not be exposed)
+
+    // display all scores, and check for blackjacks
+
+    // go around table to get player action
+
+    // send players hand to record player moves and player's hand/score
+}
+
+function playerAction(player) {
+    // ask player to hit/stay/double/split(if possible) MUST FIRST VALIDATE
+
+    // execute player action by adding next card object to player hand array
+
+    // calculate players score; if over 21 then move on to next player/dealer
+        // If players hand contains Ace and score is >21; set ace.value to 1
+
+    // loop until score >= 21 or player chooses stay option
+}
+
+function checkForBlackjack(score) {
+    if (score === 21) {
+        return true;
+    }
+    return false;
+}
+function newGame() {
+    const numPlayers = 0;
+    const newShoe = shuffle(createShoe(createDeck(), 8));
+    for (let i = 0; i < numPlayers; i++) {
+        console.log('Enter Player Name:')//prompt
+    }
+}
+
+
+
