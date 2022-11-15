@@ -79,17 +79,31 @@ function createDeck() {
         {suit: 'spades', rank: 'King', value: 10},
         {suit: 'spades', rank: 'Ace', value: 1},
     )
+    return deck;
+}
 
-
-    for (let i = 0; i < Math.floor(Math.random() * 500); i++)
+function shuffle(deck) {
+    const numCards = deck.length;
+    for (let i = 0; i < Math.floor(Math.random() * 1000); i++)
     {
         for (let i = 0; i < deck.length; i++) {
             let shuffledCard = deck.pop();
-            deck.splice(Math.floor(Math.random() * 52), 0, shuffledCard);
+            deck.splice(Math.floor(Math.random() * numCards), 0, shuffledCard);
         }
     }
-console.log(deck);
-console.log(deck.length);
-
+    return deck;
 }
-createDeck();
+
+function createShoe(deck, numShoes) {
+    const shoe = [];
+    for (let i = 0; i < numShoes; i++) {
+        for (let j = 0; j < deck.length; j++) {
+            shoe.push(deck[j]);
+        }
+    }
+    return shoe;
+}
+
+newShoe = shuffle(createShoe(createDeck(), 8));
+console.log(newShoe);
+console.log(newShoe.length)
